@@ -56,3 +56,19 @@ func GetLabels(imageName string) (labels map[string]string, err error) {
 	labels = i.Labels
 	return
 }
+
+func GetTag(tagname string, info *api.Image) *api.ImageVersion {
+	if info == nil {
+		return nil
+	}
+
+	for id, tag := range info.Versions {
+		for _, tagobj := range tag.Tags {
+			if tagobj.Tag == tagname {
+				return &info.Versions[id]
+			}
+		}
+	}
+
+	return nil
+}

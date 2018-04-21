@@ -6,6 +6,7 @@ import (
 	"github.com/spritsail/go-badge"
 	"github.com/spritsail/image-info/microbadger"
 	"net/http"
+	"strings"
 )
 
 func lastBuildBadge(req *gin.Context) {
@@ -24,7 +25,13 @@ func lastBuildBadge(req *gin.Context) {
 
 	switch status {
 	case http.StatusOK:
-		right = humanize.Time(info.LastUpdated)
+		parts := strings.Split(imgtag, ":")
+		if len(parts) > 1 {
+			ver := api.GetTag(parts[1], &info)
+			right = humanize.Time(ver.Created)
+		} else {
+			right = humanize.Time(info.LastUpdated)
+		}
 	case http.StatusNotFound:
 		color = "red"
 		right = "not found"
