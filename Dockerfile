@@ -21,4 +21,6 @@ LABEL maintainer="Spritsail <image-info@spritsail.io>" \
 
 COPY --from=build /go/bin/image-info /usr/bin/
 
+RUN apk --no-cache add ca-certificates
+
 CMD ["/usr/bin/image-info"]
