@@ -21,7 +21,6 @@ func Init(url *string) {
 func GetImage(imageName string) (i api.Image, status int, err error) {
 	url := mbURL + "/images/" + imageName
 	resp, err := http.Get(url)
-	status = resp.StatusCode
 	if err != nil {
 		log.Printf("Failed to build API GET request err %v", err)
 		return
@@ -29,6 +28,7 @@ func GetImage(imageName string) (i api.Image, status int, err error) {
 
 	defer resp.Body.Close()
 
+	status = resp.StatusCode
 	if resp.StatusCode != http.StatusOK {
 		log.Printf("GET request failed %s %d: %s", url, resp.StatusCode, resp.Status)
 		return
