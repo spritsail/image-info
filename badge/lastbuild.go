@@ -10,10 +10,8 @@ import (
 )
 
 func lastBuildBadge(req *gin.Context) {
-	owner := req.Param("owner")
-	imgtag := req.Param("image")
-
-	info, status, err := api.GetImage(owner + "/" + imgtag)
+	repo := req.Param("repo")
+	info, status, err := api.GetImage(repo)
 	if err != nil {
 		req.JSON(http.StatusInternalServerError, err)
 		return
@@ -25,7 +23,7 @@ func lastBuildBadge(req *gin.Context) {
 
 	switch status {
 	case http.StatusOK:
-		parts := strings.Split(imgtag, ":")
+		parts := strings.Split(repo, ":")
 		if len(parts) > 1 {
 			ver := api.GetTag(parts[1], &info)
 			right = humanize.Time(ver.Created)
@@ -37,12 +35,11 @@ func lastBuildBadge(req *gin.Context) {
 		right = "not found"
 	default:
 		color = "red"
-		// req.JSON(http.StatusOK, info)
 	}
 
 	badge, err := badge.RenderDef(left, right, badge.Color(color))
 	if err != nil {
-		req.AbortWithStatus(500)
+		req.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
 	req.Header("Content-Type", "image/svg+xml")

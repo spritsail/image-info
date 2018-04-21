@@ -6,6 +6,6 @@ import (
 )
 
 func BuildRoutes(router *gin.RouterGroup, c *cli.Context) (err error) {
-	router.GET("/lastbuild/:owner/:image", lastBuildBadge)
+	router.GET("/lastbuild/*repo", lastBuildBadge)
 	return
 }
