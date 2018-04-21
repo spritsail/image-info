@@ -19,7 +19,8 @@ pipeline:
             docker rm $$CON_NAME
             exit 25;
         fi
-      - curl -sSL --max-time 3 --retry 5 --retry-delay 2 --retry-connrefused $IP:8080/badge/lastbuild/spritsail/image-info -o /dev/null
+      - curl -fsSL --max-time 3 --retry 5 --retry-delay 2 --retry-connrefused 
+            $IP:8080/badge/lastbuild/spritsail/image-info >/dev/null
       - docker kill $$CON_NAME # Not really needed, but keeps things quick
       - docker rm $$CON_NAME
 
