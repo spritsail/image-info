@@ -7,6 +7,7 @@ import (
 	"github.com/spritsail/image-info/microbadger"
 	"net/http"
 	"strings"
+	"time"
 )
 
 func lastBuildBadge(req *gin.Context) {
@@ -43,5 +44,7 @@ func lastBuildBadge(req *gin.Context) {
 		return
 	}
 	req.Header("Content-Type", "image/svg+xml")
+	req.Header("Cache-Control", "no-cache, no-store, must-revalidate")
+	req.Header("Expires", time.Now().UTC().Format(time.RFC1123Z))
 	req.String(http.StatusOK, badge)
 }
