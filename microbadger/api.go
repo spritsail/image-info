@@ -57,7 +57,7 @@ func GetLabels(imageName string) (labels map[string]string, err error) {
 	return
 }
 
-func GetTag(tagname string, info *api.Image) *api.ImageVersion {
+func FindTag(tagname string, info *api.Image) *api.ImageVersion {
 	if info == nil {
 		return nil
 	}
