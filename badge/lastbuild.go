@@ -10,7 +10,7 @@ import (
 )
 
 func lastBuildBadge(req *gin.Context) {
-	repo := req.Param("repo")
+	repo := strings.TrimSuffix(req.Param("repo"), ".svg")
 	info, status, err := api.GetImage(repo)
 	if err != nil {
 		req.JSON(http.StatusInternalServerError, err)

@@ -11,7 +11,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/spritsail/image-info.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/spritsail/image-info.svg)][hub]
 [![Build Status](https://drone.spritsail.io/api/badges/spritsail/image-info/status.svg)][drone]
-[![Last Build](https://api.spritsail.io/badges/lastbuild/spritsail/image-info.svg)][hub]
+[![Last Build](https://api.spritsail.io/badge/lastbuild/spritsail/image-info.svg)][hub]
 
 An informative badge utility providing SVG badges through a simple API, inspired by shields.io
 
