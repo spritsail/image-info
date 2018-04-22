@@ -48,7 +48,7 @@ func lastBuildBadge(req *gin.Context) {
 }
 
 func versionBadge(req *gin.Context) {
-	repoInfo(req, "blue", "docker pulls", func(info *mb.Image, repo string, color string, left string) (string, string, string) {
+	repoInfo(req, "blue", "version", func(info *mb.Image, repo string, color string, left string) (string, string, string) {
 		var labels map[string]string
 
 		// If a tag is specified, use the tag labels instead
