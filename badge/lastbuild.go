@@ -25,7 +25,7 @@ func lastBuildBadge(req *gin.Context) {
 		// If a tag is specified, use the tag Created time instead
 		parts := strings.Split(repo, ":")
 		if len(parts) > 1 {
-			ver := mb.FindTag(parts[1], &info)
+			ver := info.FindTag(parts[1])
 			right = humanize.Time(ver.Created)
 		} else {
 			right = humanize.Time(info.LastUpdated)

@@ -27,7 +27,7 @@ func versionBadge(req *gin.Context) {
 		// If a tag is specified, use the tag labels instead
 		parts := strings.Split(repo, ":")
 		if len(parts) > 1 {
-			ver := mb.FindTag(parts[1], &info)
+			ver := info.FindTag(parts[1])
 			labels = ver.Labels
 		} else {
 			labels = info.Labels

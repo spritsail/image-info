@@ -2,7 +2,6 @@ package microbadger
 
 import (
 	"encoding/json"
-	"github.com/microscaling/microbadger/api"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -18,7 +17,7 @@ func Init(url *string) {
 	}
 }
 
-func GetImage(imageName string) (i api.Image, status int, err error) {
+func GetImage(imageName string) (i Image, status int, err error) {
 	url := mbURL + "/images/" + imageName
 	resp, err := http.Get(url)
 	if err != nil {
@@ -57,11 +56,7 @@ func GetLabels(imageName string) (labels map[string]string, err error) {
 	return
 }
 
-func FindTag(tagname string, info *api.Image) *api.ImageVersion {
-	if info == nil {
-		return nil
-	}
-
+func (info *Image) FindTag(tagname string) *ImageVersion {
 	for id, tag := range info.Versions {
 		for _, tagobj := range tag.Tags {
 			if tagobj.Tag == tagname {
