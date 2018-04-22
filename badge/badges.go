@@ -13,6 +13,8 @@ import (
 func BuildRoutes(router *gin.RouterGroup, c *cli.Context) (err error) {
 	router.GET("/lastbuild/*repo", lastBuildBadge)
 	router.GET("/version/*repo", versionBadge)
+	router.GET("/pulls/*repo", pullsBadge)
+	router.GET("/stars/*repo", starsBadge)
 	return
 }
 
