@@ -3,11 +3,9 @@ package badge
 import (
 	"github.com/dustin/go-humanize"
 	"github.com/gin-gonic/gin"
-	"github.com/spritsail/go-badge"
 	"github.com/spritsail/image-info/microbadger"
 	"net/http"
 	"strings"
-	"time"
 )
 
 func lastBuildBadge(req *gin.Context) {
@@ -24,6 +22,7 @@ func lastBuildBadge(req *gin.Context) {
 
 	switch status {
 	case http.StatusOK:
+		// If a tag is specified, use the tag Created time instead
 		parts := strings.Split(repo, ":")
 		if len(parts) > 1 {
 			ver := api.GetTag(parts[1], &info)
@@ -38,13 +37,5 @@ func lastBuildBadge(req *gin.Context) {
 		color = "red"
 	}
 
-	badge, err := badge.RenderDef(left, right, badge.Color(color))
-	if err != nil {
-		req.AbortWithStatus(http.StatusInternalServerError)
-		return
-	}
-	req.Header("Content-Type", "image/svg+xml")
-	req.Header("Cache-Control", "no-cache, no-store, must-revalidate")
-	req.Header("Expires", time.Now().UTC().Format(time.RFC1123Z))
-	req.String(http.StatusOK, badge)
+	sendBadge(req, left, right, color)
 }
