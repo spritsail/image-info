@@ -11,6 +11,7 @@ import (
 )
 
 func BuildRoutes(router *gin.RouterGroup, c *cli.Context) (err error) {
+	router.GET("/image/*repo", imageBadge)
 	router.GET("/lastbuild/*repo", lastBuildBadge)
 	router.GET("/version/*repo", versionBadge)
 	router.GET("/pulls/*repo", pullsBadge)

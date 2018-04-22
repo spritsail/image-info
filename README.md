@@ -5,11 +5,11 @@
 
 # [Spritsail/image-info][hub]
 
-[![Layers](https://images.microbadger.com/badges/image/spritsail/image-info.svg)][mbdg]
+[![Layers](https://api.spritsail.io/badge/image/spritsail/image-info.svg)][mbdg]
 [![Latest Version](https://api.spritsail.io/badge/version/spritsail/image-info.svg)][hub]
 [![Git Commit](https://images.microbadger.com/badges/commit/spritsail/image-info.svg)][git]
-[![Docker Pulls](https://img.shields.io/docker/pulls/spritsail/image-info.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/spritsail/image-info.svg)][hub]
+[![Docker Pulls](https://api.spritsail.io/badge/pulls/spritsail/image-info.svg)][hub]
+[![Docker Stars](https://api.spritsail.io/badge/stars/spritsail/image-info.svg)][hub]
 [![Build Status](https://drone.spritsail.io/api/badges/spritsail/image-info/status.svg)][drone]
 [![Last Build](https://api.spritsail.io/badge/lastbuild/spritsail/image-info.svg)][hub]
 

@@ -7,11 +7,11 @@ type Image struct {
 	ImageName     string // namespace/name
 	Author        string
 	Description   string
-	DownloadSize  int64
+	DownloadSize  uint64
 	ImageURL      string // URL on Docker Hub
 	Labels        map[string]string
 	LastUpdated   time.Time // When the image was last pushed
-	LayerCount    int
+	LayerCount    uint
 	LatestSHA     string
 	LatestVersion string
 	PullCount     int64
@@ -27,8 +27,8 @@ type ImageVersion struct {
 	Tags           []Tag
 	Author         string
 	Labels         map[string]string
-	LayerCount     int
-	DownloadSize   int64
+	LayerCount     uint
+	DownloadSize   uint64
 	Created        time.Time
 	MicrobadgerURL string
 }
