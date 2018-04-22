@@ -6,7 +6,7 @@
 # [Spritsail/image-info][hub]
 
 [![Layers](https://images.microbadger.com/badges/image/spritsail/image-info.svg)][mbdg]
-[![Latest Version](https://images.microbadger.com/badges/version/spritsail/image-info.svg)][hub]
+[![Latest Version](https://api.spritsail.io/badge/version/spritsail/image-info.svg)][hub]
 [![Git Commit](https://images.microbadger.com/badges/commit/spritsail/image-info.svg)][git]
 [![Docker Pulls](https://img.shields.io/docker/pulls/spritsail/image-info.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/spritsail/image-info.svg)][hub]
