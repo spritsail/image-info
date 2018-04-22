@@ -1,4 +1,4 @@
-package api
+package microbadger
 
 import (
 	"encoding/json"

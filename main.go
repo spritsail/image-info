@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/spritsail/image-info/badge"
-	"github.com/spritsail/image-info/microbadger"
+	mb "github.com/spritsail/image-info/microbadger"
 	"github.com/urfave/cli"
 )
 
@@ -34,7 +34,7 @@ func main() {
 		base := router.Group(c.String("baseURL"))
 		badge.BuildRoutes(base.Group("/badge"), c)
 
-		api.Init(nil)
+		mb.Init(nil)
 
 		return router.Run(c.String("bind"))
 	}
