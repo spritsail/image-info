@@ -9,7 +9,7 @@ RUN apk --no-cache add git \
 
 # ~~~~~~~~~~~~~
 
-FROM spritsail/alpine:3.8
+FROM spritsail/alpine:3.9
 
 ARG VCS_REF
 
